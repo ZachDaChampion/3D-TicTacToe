@@ -81,4 +81,24 @@ function mouse_click(square) {
         lookup.get().set_owner(turn % 2 == 0 ? 1 : -1);
         turn++;
     }
+
+    let red_victory = check_win(1, grid);
+    let blue_victory = check_win(-1, grid);
+
+    setTimeout(function() {
+
+        if (red_victory && blue_victory) {
+            window.alert("Tie");
+            window.location.reload(false);
+        }
+
+        else if (red_victory) {
+            window.alert("Red wins!");
+            window.location.reload(false);
+        }
+        else if (blue_victory) {
+            window.alert("Blue wins!");
+            window.location.reload(false);
+        }
+    }, 100);
 }
